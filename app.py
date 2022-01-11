@@ -3,18 +3,23 @@ from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import redirect
 from getStockData import Stocker,Advisor
 from test import tester
+from getStockTop10 import PopularStocker
 import pandas as pd
 
-app = Flask(__name__)
 
+app = Flask(__name__)
+historys=[]
+popularStocks=PopularStocker()
 @app.route('/',methods=['GET','POST'])
 def index():
     if request.method == 'POST':
         if input_check(request.form['sid']):
+            historys.append(request.form['sid'])
             return redirect(url_for('result', sid=request.form.get('sid')))
         else:
             return redirect(url_for('error', sid=request.form.get('sid')))
-    return render_template('index.html')
+    else:
+        return render_template('index.html',historys=historys,popularStocks=popularStocks)
 
 def input_check(sid):
     # 檢核輸入股票代號
@@ -31,7 +36,7 @@ def result(sid):
     # advice=Advisor(sid)
     df=pd.DataFrame(tester(sid))
     df=df.drop(index=['ETF證券代號第六碼為K、M、S、C者，表示該ETF以外幣交易。','當日統計資訊含一般、零股、盤後定價、鉅額交易，不含拍賣、標購。','符號說明:+/-/X表示漲/跌/不比價','說明:'])
-    return render_template('result.html', alltable=[df.to_html(classes='alldata')])
+    return render_template('result.html', alltable=[df.to_html(classes='alldata table-striped table-hover table-dark table-responsive-')],historys=historys,popularStocks=popularStocks)
 
 @app.route('/error/<sid>')
 def error(sid):
@@ -39,5 +44,4 @@ def error(sid):
 
 if __name__=='__main__':
     app.debug = True
-    app.secret_key="Your Key"
     app.run()

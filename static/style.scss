@@ -1,0 +1,199 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #ffffff;
+    color: #ffffff;
+    text-align: center;
+    font-family: Arial, "微軟正黑體", "Microsoft JhengHei", Roboto, "PingFangTC", sans-serif,
+}
+h1{
+    margin-bottom: 10px;
+}
+a{
+    cursor: pointer;
+}
+form{
+    display: flex;
+    justify-content: space-between;
+}
+input[type="text"]{
+    font-size: 14px;
+    padding: 3px;
+    flex: 1 0;
+    margin-right: 10px;
+}
+
+::placeholder { /* CSS 3 標準 */
+    color: #a38a17;
+  }
+::-webkit-input-placeholder { /* Chrome, Safari */
+    color: #a38a17;
+}
+  
+button[type="submit"]{
+    color: #504315;
+    border: none;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d3b119+0,cec090+100 */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d1b63e+0,cec090+100 */
+background: #d1b63e; /* Old browsers */
+background: -moz-linear-gradient(top,  #d1b63e 0%, #cec090 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #d1b63e 0%,#cec090 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #d1b63e 0%,#cec090 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1b63e', endColorstr='#cec090',GradientType=0 ); /* IE6-9 */
+
+
+    border-radius: 10px;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+ul{
+    list-style: none;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top:0;
+    right:0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    // border-radius: 20px;
+    padding: 20px;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.header,.content{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 10px;
+    box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: .7);
+    top:30%;
+}
+.popular{
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    padding: 20px 0;
+    color: #504315;
+    span{
+        display:flex ;
+        align-items: center;
+        text-align: left;
+        color: #504315;
+        margin-bottom: 10px;
+        b{
+            background-color: #D5C576;
+            color: #504315;
+            padding: 3px 7px;
+            border-radius: 5px;
+            margin-right: 5px;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            &::before{
+                position: absolute;
+                top:-50px;
+                content: "";
+                width:10px;
+                height: 100px;
+                background-color: white;
+                opacity: .2;
+                transform: rotate(60deg);
+                animation: light 3s infinite ;
+            }
+        }
+    }
+    @keyframes light {
+        0%{
+            top:-50px;
+        }
+        30%{
+            top:50px;
+        }
+        100%{
+            top:50px;
+        }
+    }
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            &:not(:last-child){
+                margin-right: 7px;
+                border-right: 2px solid #504315;
+                padding-right: 7px;
+            }
+            a{
+                color: #504315;
+                &:hover{
+                    color: #867535;
+                }
+            }
+        }
+    }
+}
+.history{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px 0;
+    color: #504315;
+    span{
+        margin-right: 10px;
+    }
+    ul{
+        display: flex;
+        li{
+            &:not(:last-child){
+                margin-right: 7px;
+                border-right: 2px solid #504315;
+                padding-right: 7px;
+            }
+            a{
+                color: #504315;
+                &:hover{
+                    color: #867535;
+                }
+            }
+        }
+    }
+}
+table,tr,td{
+    border:none;
+}
+.content{
+    margin-top: 10px;
+    padding: 20px;
+color: #504315;
+background: #d1b63e; /* Old browsers */
+background: -moz-linear-gradient(top,  #d1b63e 0%, #cec090 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #d1b63e 0%,#cec090 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #d1b63e 0%,#cec090 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1b63e', endColorstr='#cec090',GradientType=0 ); /* IE6-9 */
+    table{
+        border-collapse:collapse;
+        font-size: 15px;
+        tbody{
+            tr{
+                th{
+                    padding: 5px;
+                }
+                &:nth-child(even){
+                    
+                    // background-color: #867535;
+                }
+                &:nth-child(odd){
+                    background-color: white;
+                    color: #504315;
+                }
+            }
+        }
+    }
+}
