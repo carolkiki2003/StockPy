@@ -1,6 +1,7 @@
 {% extends "index.html" %}
 {% block title %}Stock Result{% endblock title %}
 {% block content%}
+<h3>{{head}}</h3>
 {% for table in alltable %}
     {{ table|safe }}
 {% endfor %}

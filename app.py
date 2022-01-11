@@ -35,8 +35,9 @@ def result(sid):
     # new_df = df.drop(["Adj Close"], axis=1)
     # advice=Advisor(sid)
     df=pd.DataFrame(tester(sid))
+    head=list(df.head(0).to_dict().keys())[0]
     df=df.drop(index=['ETF證券代號第六碼為K、M、S、C者，表示該ETF以外幣交易。','當日統計資訊含一般、零股、盤後定價、鉅額交易，不含拍賣、標購。','符號說明:+/-/X表示漲/跌/不比價','說明:'])
-    return render_template('result.html', alltable=[df.to_html(classes='alldata table-striped table-hover table-dark table-responsive-')],historys=historys,popularStocks=popularStocks)
+    return render_template('result.html', alltable=[df.to_html(classes='alldata table-striped table-hover table-dark table-responsive-')],historys=historys,popularStocks=popularStocks,head=head)
 
 @app.route('/error/<sid>')
 def error(sid):

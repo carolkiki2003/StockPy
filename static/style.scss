@@ -8,8 +8,9 @@ body{
     text-align: center;
     font-family: Arial, "微軟正黑體", "Microsoft JhengHei", Roboto, "PingFangTC", sans-serif,
 }
-h1{
+h1,h3{
     margin-bottom: 10px;
+    color: #504315;
 }
 a{
     cursor: pointer;
@@ -65,16 +66,44 @@ ul{
     margin: auto;
     // border-radius: 20px;
     padding: 20px;
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(182deg, #000000, #56534c, #b7a16d);
+    background-size: 600% 600%;
+
+    -webkit-animation: bgAni 100s ease infinite;
+    -moz-animation: bgAni 100s ease infinite;
+    animation: bgAni 100s ease infinite;
+}
+@-webkit-keyframes bgAni {
+    0%{background-position:51% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:51% 0%}
+}
+@-moz-keyframes bgAni {
+    0%{background-position:51% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:51% 0%}
+}
+@keyframes bgAni {
+    0%{background-position:51% 0%}
+    50%{background-position:50% 100%}
+    100%{background-position:51% 0%}
 }
 .header,.content{
     background-color: white;
     border-radius: 10px;
     padding: 20px 10px;
     box-shadow: 5px 5px 10px rgba($color: #000000, $alpha: .7);
-    top:30%;
+    animation: slideIn 1s ;
+}
+@keyframes slideIn{
+    0%{
+        opacity: 0;
+        transform: translateY(200%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
 }
 .popular{
     display: flex;
